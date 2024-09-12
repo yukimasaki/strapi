@@ -1,6 +1,7 @@
 services:
   strapi-app:
     networks:
+      default: # strapi-dbにアクセスするために必要
       reverse-proxy-network:
         aliases:
           - strapi-app-container
