@@ -27,9 +27,9 @@ services:
       - strapi:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-r00tP@ssw0rd}
-      MARIADB_DATABASE: ${MARIADB_DATABASE:-strapidb}
-      MARIADB_USER: ${MARIADB_USER:-strapidb_user}
-      MARIADB_PASSWORD: ${MARIADB_PASSWORD:-P@ssw0rd}
+      MARIADB_DATABASE: ${DATABASE_NAME:-strapidb}
+      MARIADB_USER: ${DATABASE_USERNAME:-strapidb_user}
+      MARIADB_PASSWORD: ${DATABASE_PASSWORD:-P@ssw0rd}
 
 volumes:
   strapi:
