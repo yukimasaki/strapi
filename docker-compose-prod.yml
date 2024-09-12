@@ -1,7 +1,6 @@
 services:
   strapi-app:
     networks:
-      default:
       reverse-proxy-network:
         aliases:
           - strapi-app-container
@@ -48,3 +47,4 @@ volumes:
 
 networks:
   reverse-proxy-network:
+    external: true
