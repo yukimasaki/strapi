@@ -4,19 +4,16 @@ jobs:
   setup-reverse-proxy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4
 
       - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
+        uses: appleboy/ssh-action@v1
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-          name: id_rsa
-          config: |
-            Host server
-              HostName ${{ secrets.SSH_HOST_NAME }}
-              User ${{ secrets.SSH_USER_NAME }}
-              IdentityFile ~/.ssh/id_rsa
+          host: ${{ secrets.SSH_HOST_NAME }}
+          username: ${{ secrets.SSH_USER_NAME }}
+          port: ${{ secrets.SSH_PORT }}
+
       - name: run
         run: ssh server -p ${{ secrets.SSH_PORT }} "echo 'hogefuga'"
