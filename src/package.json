@@ -10,6 +10,7 @@
     "strapi": "strapi",
     "deploy": "strapi deploy",
     "pm2:start": "pm2 start ./.pm2/ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart ./.pm2/ecosystem.config.cjs",
     "pm2:stop": "pm2 stop ./.pm2/ecosystem.config.cjs"
   },
   "devDependencies": {},
