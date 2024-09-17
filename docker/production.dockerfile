@@ -1,7 +1,7 @@
-FROM node:20.17.0-alpine3.20
+FROM node:20.17.0-slim
 
-RUN apk update
+RUN apt update -y
 
-RUN apk add git
+RUN apt install -y git
 
 WORKDIR /usr/src/app

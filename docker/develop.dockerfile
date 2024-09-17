@@ -1,7 +1,7 @@
-FROM node:20.17.0-alpine3.20
+FROM node:20.17.0-slim
 
-RUN apk update
+RUN apt update -y
 
-RUN apk add curl git
+RUN apt instlal -y curl git
 
 WORKDIR /usr/src/app
