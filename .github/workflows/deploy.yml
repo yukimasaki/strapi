@@ -14,6 +14,5 @@ jobs:
           host: ${{ secrets.SSH_HOST_NAME }}
           username: ${{ secrets.SSH_USER_NAME }}
           port: ${{ secrets.SSH_PORT }}
-
-      - name: run
-        run: ssh server -p ${{ secrets.SSH_PORT }} "echo 'hogefuga'"
+          script: |
+            echo "Hello World from SSH"
