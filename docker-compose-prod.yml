@@ -7,7 +7,7 @@ services:
           - strapi-app-container
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/production.dockerfile
     tty: true
     volumes:
       - ./src:/usr/src/app
