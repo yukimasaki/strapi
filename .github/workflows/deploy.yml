@@ -1,0 +1,22 @@
+name: Strapi Deploy
+on: workflow_dispatch
+jobs:
+  setup-reverse-proxy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          name: id_rsa
+          config: |
+            Host server
+              HostName ${{ secrets.SSH_HOST_NAME }}
+              User ${{ secrets.SSH_USER_NAME }}
+              IdentityFile ~/.ssh/id_rsa
+      - name: run
+        run: ssh server -p ${{ secrets.SSH_PORT }} "echo 'hogefuga'"
