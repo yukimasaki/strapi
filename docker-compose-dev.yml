@@ -1,5 +1,7 @@
 services:
   strapi-app:
+    container_name: strapi-app
+    restart: always
     build:
       context: .
       dockerfile: ./docker/develop.dockerfile
@@ -28,8 +30,9 @@ services:
       JWT_SECRET: ${JWT_SECRET:-tobemodified}
 
   strapi-db:
+    container_name: strapi-db
     image: mariadb:latest
-    restart: unless-stopped
+    restart: always
     volumes:
       - strapi:/var/lib/mysql
     environment:

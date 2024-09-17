@@ -1,5 +1,7 @@
 services:
   strapi-app:
+    container_name: strapi-app
+    restart: always
     networks:
       default: # strapi-dbにアクセスするために必要
       reverse-proxy-network:
@@ -34,8 +36,9 @@ services:
       NODE_ENV: production
 
   strapi-db:
+    container_name: strapi-db
     image: mariadb:latest
-    restart: unless-stopped
+    restart: always
     volumes:
       - strapi:/var/lib/mysql
     environment:
