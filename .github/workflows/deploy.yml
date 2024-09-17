@@ -4,8 +4,8 @@ jobs:
   setup-reverse-proxy:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install SSH key
         uses: appleboy/ssh-action@master
